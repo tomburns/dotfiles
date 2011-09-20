@@ -1,0 +1,8 @@
+[instaweb]
+  httpd = webrick
+[user]
+	name = Tom Burns
+	email = tomburns@gmail.com
+[core]
+	excludesfile = /Users/tburns/.gitignore_global
+	editor = mvim -f
