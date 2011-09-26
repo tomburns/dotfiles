@@ -148,3 +148,6 @@ au FocusLost * :wa
 
 "set c mode to use indicator $
 set cpoptions+=$
+
+"gui font settings
+set guifont=Menlo:h11
