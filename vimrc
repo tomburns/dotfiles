@@ -1,3 +1,5 @@
+set nocompatible
+
 " first clear any existing autocommands:
 autocmd!
 
@@ -6,7 +8,15 @@ call pathogen#infect()
 " * User Interface
 
 " Colorscheme
-colorscheme molokai
+colorscheme solarized
+"set background=dark "solarized supports light, too!
+
+if (!has('gui_running'))
+  set bg=dark 
+else 
+  set bg=light 
+endif 
+hi clear 
 
 " have syntax highlighting in terminals which can display colours:
 if has('syntax') && (&t_Co > 2)
@@ -115,7 +125,6 @@ nnoremap <tab> %
 vnoremap <tab> %
 
 
-set nocompatible
 
 "disable arrowkeys: no wussy stuff
 
@@ -143,6 +152,13 @@ vnoremap <F1> <ESC>
 
 nnoremap ; :
 
+"swap between relative and absolute line numbers
+nnoremap <leader>l :exe 'set ' . (&relativenumber ? 'number' : 'relativenumber')<return>
+
+nnoremap <leader><tab> :NERDTreeToggle<return>
+
+nnoremap <leader>` :noh<return>
+
 "autosave when focus is lost
 au FocusLost * :wa
 
@@ -151,3 +167,8 @@ set cpoptions+=$
 
 "gui font settings
 set guifont=Menlo:h11
+
+"macvim gui options
+if has("gui_running")
+    set guioptions=aAcet
+endif
