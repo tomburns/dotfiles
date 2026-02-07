@@ -1,0 +1,45 @@
+# Ghostty Terminal Configuration
+# Part of dotfiles-scratchpad — consistent Catppuccin Mocha environment
+#
+# Symlink to: ~/.config/ghostty/config
+# Reload: Cmd+Shift+, or restart Ghostty
+
+# ── Theme ──────────────────────────────────────────────────────────
+# Catppuccin Mocha: warm dark theme with pastel accents
+# Built into Ghostty since 1.0 — no manual theme files needed
+# IMPORTANT: Title Case required since Ghostty 1.2.0 (not kebab-case)
+theme = Catppuccin Mocha
+
+# ── Font ───────────────────────────────────────────────────────────
+# JetBrains Mono Nerd Font: coding ligatures + complete icon glyphs
+# The "Nerd Font" variant includes all icons for statuslines, file trees, prompts
+# Install: brew install --cask font-jetbrains-mono-nerd-font
+font-family = Fira Code
+
+# 13pt is comfortable for extended coding sessions
+# Ghostty uses typographic points (not pixels) — scales with display DPI
+font-size = 16
+
+# ── Window ─────────────────────────────────────────────────────────
+# Native macOS titlebar with integrated tab bar
+# Provides familiar window controls (traffic lights) + clean tab switching
+macos-titlebar-style = tabs
+
+# Horizontal padding aligns with macOS traffic light buttons (~10pt)
+# Gives content breathing room from window edges
+window-padding-x = 10
+
+# Vertical padding separates content from titlebar and bottom edge
+window-padding-y = 5
+
+# ── Input ──────────────────────────────────────────────────────────
+# Map Option key as Alt for terminal shortcuts (Alt+B, Alt+F word navigation)
+# Trade-off: Disables macOS Unicode input via Option key (accented characters)
+# If you need Unicode input, change to: macos-option-as-alt = left
+macos-option-as-alt = true
+
+# ── Shell Integration ──────────────────────────────────────────────
+# Auto-detect shell and inject integration (Fish, Zsh, Bash supported)
+# Enables: CWD tracking (new tabs open in same directory), smart cursor,
+# jump-to-prompt navigation (Cmd+Up/Down), command output selection
+shell-integration = detect

@@ -1,0 +1,149 @@
+# Starship Prompt Configuration
+# ==============================
+#
+# Two-line prompt with Catppuccin Mocha color palette.
+# First line: context (directory, git, language versions, docker)
+# Second line: clean input with character indicator
+# Right side: command duration and time
+
+# Theme Configuration
+# ===================
+# Activate Catppuccin Mocha color palette (defined at bottom of file)
+palette = "catppuccin_mocha"
+
+# Performance
+# ===========
+# Increase timeout from default 500ms to 1000ms for larger git repos
+command_timeout = 1000
+
+# Prompt Format
+# =============
+# Two-line layout: context on first line, input on second line
+format = """
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$python\
+$docker_context\
+$line_break\
+$character\
+"""
+
+# Right-side modules: command duration and time
+# Keeps the left side clean while showing useful timing info
+right_format = """
+$cmd_duration\
+$time\
+"""
+
+# Module Configurations
+# =====================
+
+[directory]
+# Current directory path
+# Style: bold blue (Catppuccin Mocha blue = #89b4fa)
+# Truncation: show last 3 segments, truncate to repo root when in git repo
+style = "bold blue"
+truncation_length = 3
+truncate_to_repo = true
+
+[git_branch]
+# Git branch name
+# Style: bold mauve (Catppuccin Mocha mauve = #cba6f7)
+# Symbol: Nerd Font git branch icon
+symbol = " "
+style = "bold mauve"
+
+[git_status]
+# Git repository status with detailed counts
+# Style: bold red (Catppuccin Mocha red = #f38ba8)
+# Shows: ahead/behind, conflicts, staged, modified, untracked, stashed, deleted, renamed
+style = "bold red"
+conflicted = "="
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "$${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+[nodejs]
+# Node.js version
+# Style: bold green (Catppuccin Mocha green = #a6e3a1)
+# Symbol: Nerd Font Node.js icon
+symbol = " "
+style = "bold green"
+
+[python]
+# Python version
+# Style: bold yellow (Catppuccin Mocha yellow = #f9e2af)
+# Symbol: Nerd Font Python icon
+symbol = " "
+style = "bold yellow"
+
+[docker_context]
+# Docker context (when not 'default')
+# Style: bold sapphire (Catppuccin Mocha sapphire = #74c7ec)
+# Note: Using sapphire instead of blue to visually distinguish from directory module
+# Symbol: Nerd Font Docker icon
+symbol = " "
+style = "bold sapphire"
+
+[cmd_duration]
+# Command execution duration (shown on right side)
+# Style: bold yellow (Catppuccin Mocha yellow = #f9e2af)
+# Min time: 2000ms (2 seconds) - only show for longer commands
+min_time = 2000
+style = "bold yellow"
+format = "[$duration]($style) "
+
+[time]
+# Current time (shown on right side)
+# Style: bold subtext0 (Catppuccin Mocha subtext0 = #a6adc8)
+# Disabled by default in Starship, enabled here for awareness
+disabled = false
+style = "bold subtext0"
+format = "[$time]($style)"
+
+[character]
+# Command input character
+# Success: green right arrow (command succeeded)
+# Error: red right arrow (command failed)
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+# Catppuccin Mocha Color Palette
+# ===============================
+# Official Catppuccin Mocha color definitions (26 colors)
+# Full palette: https://github.com/catppuccin/catppuccin
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
