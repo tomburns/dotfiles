@@ -19,14 +19,35 @@ Fish shell plugins (via [Fisher](https://github.com/jorgebucaran/fisher)):
 
 ### Prerequisites
 
-Install chezmoi:
+These dotfiles are designed for macOS with [Homebrew](https://brew.sh/). Install Homebrew first if you don't have it:
 
 ```sh
-# macOS
-brew install chezmoi
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
-# or with a single binary install
-sh -c "$(curl -fsLS get.chezmoi.io)"
+Then install the required tools:
+
+```sh
+brew install chezmoi fish neovim starship ripgrep fd
+brew install --cask ghostty font-fira-code-nerd-font
+```
+
+| Tool | Purpose |
+|------|---------|
+| [chezmoi](https://www.chezmoi.io/) | Dotfile manager |
+| [Fish](https://fishshell.com/) | Shell |
+| [Neovim](https://neovim.io/) | Editor |
+| [Starship](https://starship.rs/) | Prompt |
+| [ripgrep](https://github.com/BurntSushi/ripgrep) | Telescope live grep |
+| [fd](https://github.com/sharkdp/fd) | Telescope file finder |
+| [Ghostty](https://ghostty.org/) | Terminal emulator |
+| [Fira Code Nerd Font](https://github.com/ryanoasis/nerd-fonts) | Font with coding ligatures and icons |
+
+After applying the dotfiles, install [Fisher](https://github.com/jorgebucaran/fisher) (Fish plugin manager) and plugins:
+
+```sh
+fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+fish -c "fisher update"
 ```
 
 ### Initialize
