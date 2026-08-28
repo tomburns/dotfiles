@@ -16,3 +16,7 @@
 # Note: Set STARSHIP_CONFIG environment variable to point to starship/starship.toml
 # or symlink ~/.config/starship.toml to this repo's starship/starship.toml
 starship init fish | source
+
+# SDKMAN-managed JDK (set up 2026-05-19 for tfs-web tests)
+set -gx JAVA_HOME "$HOME/.sdkman/candidates/java/current"
+fish_add_path "$JAVA_HOME/bin"
